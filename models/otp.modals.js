@@ -26,5 +26,5 @@ const otpSchema = new mongoose.Schema(
   },
 );
 
-const OtpSendToDatabase = mongoose.model("OtpCollectionDB", otpSchema);
-export default OtpSendToDatabase;
+const otpDatabase = mongoose.model("OtpCollectionDB", otpSchema);
+export default otpDatabase;

@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 import crypto from "crypto";
-import OtpSendToDatabase from "../models/otp.modals.js";
+import otpDatabase from "../models/otp.modals.js";
 
 export const OtpSend = async (req, res) => {
   try {
@@ -12,7 +12,7 @@ export const OtpSend = async (req, res) => {
         .json({ success: false, message: "ইমেইল পাওয়া যায়নি।" });
     }
     const otp = crypto.randomInt(100000, 1000000).toString();
-    await OtpSendToDatabase.updateOne(
+    await otpDatabase.updateOne(
       { email },
       { $set: { email, name, otp, createdAt: new Date() } },
       { upsert: true },
