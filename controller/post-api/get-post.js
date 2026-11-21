@@ -1,4 +1,4 @@
-import postDatabase from "../../models/post.modal.js";
+import postDatabase from "../../models/post-actions/post.modal.js";
 
 export const getPostApi = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-import otpDatabase from "../models/otp.modals.js";
+import otpDatabase from "../../models/OTP/otp.modals.js";
 
 export const OtpGet = async (req, res) => {
   try {

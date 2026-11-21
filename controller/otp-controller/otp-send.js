@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 import crypto from "crypto";
-import otpDatabase from "../models/otp.modals.js";
+import otpDatabase from "../../models/OTP/otp.modals.js";
 
 export const OtpSend = async (req, res) => {
   try {

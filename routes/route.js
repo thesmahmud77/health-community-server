@@ -1,19 +1,25 @@
 import { Router } from "express";
-import { OtpGet } from "../controller/otp-get.js";
-import { OtpSend } from "../controller/otp-send.js";
-import { communityPost } from "../controller/post-api/post-post.js";
 import { getPostApi } from "../controller/post-api/get-post.js";
+import { getSingleData } from "../controller/post-api/get-single-data.js";
+import { OtpGet } from "../controller/otp-controller/otp-get.js";
+import { OtpSend } from "../controller/otp-controller/otp-send.js";
+import { createPost } from "../controller/post-api/post-post.js";
+import { createCategories } from "../controller/categories-controller/createCategories.js";
+import { getAllCategories } from "../controller/categories-controller/getAllCategories.js";
 
 const route = Router();
 
+// OTP Routes API
 route.post("/otp-send", OtpSend);
-
 route.get("/get-otp", OtpGet);
-route.post("/create-post", communityPost);
 
-// Get All the Post
+// POST Route API
+route.post("/create-post", createPost);
 route.get("/get-post", getPostApi);
+route.get("/get-post/:id", getSingleData);
 
-// Get the Single Post
+// Categories Route API
+route.post("/categoris-find", createCategories);
+route.get("/categoris-all-data", getAllCategories);
 
 export default route;
