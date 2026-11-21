@@ -12,6 +12,10 @@ const reactionSchema = new mongoose.Schema(
       enum: ["like", "dislike", "care", "helpful"],
       required: true,
     },
+    reactedAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
   { _id: false },
 );
