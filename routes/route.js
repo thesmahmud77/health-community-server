@@ -8,6 +8,14 @@ import { getAllCategories } from "../controller/categories-controller/getAllCate
 import { createHospital } from "../controller/hospital-controller/create.hospital.js";
 import { allHospitalInfo } from "../controller/hospital-controller/all.hospital.js";
 import { singleHospitalInfo } from "../controller/hospital-controller/single.hospital.js";
+import {
+  getClientNotifications,
+  markNotificationAsRead,
+} from "../controller/notification-controller/notification.controller.js";
+import {
+  createPrescription,
+  getUserPrescriptions,
+} from "../controller/prescription-controller/createPrescription.js";
 
 const route = Router();
 
@@ -21,12 +29,20 @@ route.get("/get-post", createPost);
 route.get("/get-post/:id", getSingleData);
 
 // Categories Route API
-route.post("/categoris-find", createCategories);
-route.get("/categoris-all-data", getAllCategories);
+route.post("/create-category", createCategories);
+route.get("/category", getAllCategories);
 
 // Hospital Route API
 route.post("/create-hospital", createHospital);
 route.get("/hospital", allHospitalInfo);
 route.get("/hospital/:id", singleHospitalInfo);
+
+// Prescription routes
+route.post("/prescriptions", createPrescription);
+route.get("/prescriptions", getUserPrescriptions);
+
+// Client notification routes
+route.get("/notifications", getClientNotifications);
+route.patch("/notifications/:id/read", markNotificationAsRead);
 
 export default route;
