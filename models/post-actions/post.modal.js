@@ -121,6 +121,21 @@ const postSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    homeRemedies: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    doctorInfo: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    testsAndTips: {
+      type: String,
+      default: "",
+      trim: true,
+    },
   },
   {
     timestamps: true,

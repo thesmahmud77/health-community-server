@@ -16,6 +16,7 @@ import {
   createPrescription,
   getUserPrescriptions,
 } from "../controller/prescription-controller/createPrescription.js";
+import { getPostApi } from "../controller/post-api/get-post.js";
 
 const route = Router();
 
@@ -25,11 +26,11 @@ route.get("/get-otp", OtpGet);
 
 // POST Route API
 route.post("/create-post", createPost);
-route.get("/get-post", createPost);
-route.get("/get-post/:id", getSingleData);
+route.get("/posts", getPostApi);
+route.get("/post/:id", getSingleData);
 
 // Categories Route API
-route.post("/create-category", createCategories);
+route.post("/category", createCategories);
 route.get("/category", getAllCategories);
 
 // Hospital Route API
